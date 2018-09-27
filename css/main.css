@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff3e75;
+  background: #ff05ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2662,7 +2662,7 @@ embed {
 }
 @media screen and (min-width: 1200px) {
   body {
-    background-image: url("/images/timg.jpg");
+    background-image: url("/images/bg1.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
@@ -2671,4 +2671,8 @@ embed {
   #footer a {
     color: #eee;
   }
+}
+.main-inner {
+  background: #fff;
+  opacity: 0.9;
 }
