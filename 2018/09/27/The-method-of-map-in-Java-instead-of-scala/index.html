@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="用Java实现Scala中map方法具体需求：操作一个字符串集合中的元素，加入一段字符串或者是将小写字母改成大写字母。… 需求的引出理清scala中map方法实现的过程，函数编程思想与java面向对象编程思想的对比。通过Java模仿函数式编程，充分把握到scala的优势。 思考过程熟悉scala中map方法的使用1234scala&amp;gt; val arr = Array(&quot;Spark&quot;, &quot;Had">
+<meta name="description" content="用Java实现Scala中map方法具体需求：操作一个字符串集合中的元素，加入一段字符串或者是将小写字母改成大写字母。…">
 <meta name="keywords" content="scala,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The method of map in Java instead of Scala">
 <meta property="og:url" content="http://yoursite.com/2018/09/27/The-method-of-map-in-Java-instead-of-scala/index.html">
 <meta property="og:site_name" content="Masato&#39;s Blog">
-<meta property="og:description" content="用Java实现Scala中map方法具体需求：操作一个字符串集合中的元素，加入一段字符串或者是将小写字母改成大写字母。… 需求的引出理清scala中map方法实现的过程，函数编程思想与java面向对象编程思想的对比。通过Java模仿函数式编程，充分把握到scala的优势。 思考过程熟悉scala中map方法的使用1234scala&amp;gt; val arr = Array(&quot;Spark&quot;, &quot;Had">
+<meta property="og:description" content="用Java实现Scala中map方法具体需求：操作一个字符串集合中的元素，加入一段字符串或者是将小写字母改成大写字母。…">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-27T14:32:29.700Z">
+<meta property="og:updated_time" content="2018-09-27T14:36:22.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The method of map in Java instead of Scala">
-<meta name="twitter:description" content="用Java实现Scala中map方法具体需求：操作一个字符串集合中的元素，加入一段字符串或者是将小写字母改成大写字母。… 需求的引出理清scala中map方法实现的过程，函数编程思想与java面向对象编程思想的对比。通过Java模仿函数式编程，充分把握到scala的优势。 思考过程熟悉scala中map方法的使用1234scala&amp;gt; val arr = Array(&quot;Spark&quot;, &quot;Had">
+<meta name="twitter:description" content="用Java实现Scala中map方法具体需求：操作一个字符串集合中的元素，加入一段字符串或者是将小写字母改成大写字母。…">
 
 
 
@@ -384,7 +384,7 @@
       
 
       
-        <h2 id="用Java实现Scala中map方法"><a href="#用Java实现Scala中map方法" class="headerlink" title="用Java实现Scala中map方法"></a>用Java实现Scala中map方法</h2><h3 id="具体需求："><a href="#具体需求：" class="headerlink" title="具体需求："></a>具体需求：</h3><p>操作一个字符串集合中的元素，加入一段字符串或者是将小写字母改成大写字母。…<--more--></--more--></p>
+        <h2 id="用Java实现Scala中map方法"><a href="#用Java实现Scala中map方法" class="headerlink" title="用Java实现Scala中map方法"></a>用Java实现Scala中map方法</h2><h3 id="具体需求："><a href="#具体需求：" class="headerlink" title="具体需求："></a>具体需求：</h3><p>操作一个字符串集合中的元素，加入一段字符串或者是将小写字母改成大写字母。…<br><a id="more"></a></p>
 <h3 id="需求的引出"><a href="#需求的引出" class="headerlink" title="需求的引出"></a>需求的引出</h3><p>理清scala中map方法实现的过程，函数编程思想与java面向对象编程思想的对比。通过Java模仿函数式编程，充分把握到scala的优势。</p>
 <h3 id="思考过程"><a href="#思考过程" class="headerlink" title="思考过程"></a>思考过程</h3><p>熟悉scala中map方法的使用<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> arr = <span class="type">Array</span>(<span class="string">"Spark"</span>, <span class="string">"Hadoop"</span>, <span class="string">"Scala"</span>, <span class="string">"Hbase"</span>, <span class="string">"Flink"</span>)</span><br><span class="line">arr: <span class="type">Array</span>[<span class="type">String</span>] = <span class="type">Array</span>(<span class="type">Spark</span>, <span class="type">Hadoop</span>, <span class="type">Scala</span>, <span class="type">Hbase</span>, <span class="type">Flink</span>)</span><br><span class="line">scala&gt; arr.map(x =&gt; x.toUpperCase + <span class="string">"2.0"</span>)</span><br><span class="line">res1: <span class="type">Array</span>[<span class="type">String</span>] = <span class="type">Array</span>(<span class="type">SPARK2</span><span class="number">.0</span>, <span class="type">HADOOP2</span><span class="number">.0</span>, <span class="type">SCALA2</span><span class="number">.0</span>, <span class="type">HBASE2</span><span class="number">.0</span>, <span class="type">FLINK2</span><span class="number">.0</span>)</span><br></pre></td></tr></table></figure></p>
 <p>scala中的集合调用map方法，循环操作集合中的元素。map方法是在进行”做映射”的操作。所谓”映射”，即是指两个集合中的元素有了一一对应的关系。数学知识牵引：函数y=f(x)就存在着一种映射关系，一个x的值就会有一个y值与之对应。我将<code>x =&gt; f(x)</code>用数学中函数的思想来理解的话，结合当前情景，数组调用了map方法，map方法制造了一种映射关系：依次传入集合中的元素(相当于x)到函数式<code>x.toUpperCase + &quot;2.0&quot;</code>中进行”_运算_”,结果放进了新的数组里。arr2 = f(arr1)，两个集合中的对应元素见存在的映射关系。</p>
